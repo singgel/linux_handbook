@@ -4,6 +4,16 @@
 ## 打开端口
 http.ListenAndServe(":6060", nil)
 
+## 分析
+http://10.226.137.236:8099/debug/pprof/heap
+
+go tool pprof heap
+Type 这一个选项，你可以看到它默认显示的是 inuse_space
+-inuse_space：分析应用程序的常驻内存占用情况
+    代码中对应的就是：cache 大对象 大map 大链表之类的
+-alloc_objects：分析应用程序的内存临时分配情况
+    代码中对应的就是：http/rpc的交互 channel的异步队列例如：日志输出之类的
+
 Alloc：已分配的内存字节数。
 TotalAlloc：程序运行期间分配的所有内存字节数。
 Sys：系统使用的内存字节数。
