@@ -3,6 +3,9 @@ dmesg
 #查看文件版本
 md5sum
 
+ping <目标地址> -S <出口IP地址>
+ping <目标地址> -I <出口接口名称>
+
 -------------
 #查看iptables的变化（流量没有离开本机）
 watch -n 1 "iptables -t filter -nvL "
@@ -27,7 +30,6 @@ tcpdump -n -X -i any port 12500  icmp
 iptables -vnL -t [表名] --line-numbers
 #列出指定表的指定链的规则
 iptables -t [表名] -vnL [链名]
-
 
 -------------
 #查看连接数
